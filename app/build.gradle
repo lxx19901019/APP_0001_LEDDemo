@@ -10,8 +10,14 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
     }
+
     sourceSets {
+        dexOptions {
+            javaMaxHeapSize "4g"
+        }
         main {
             jniLibs.srcDirs=['libs']
         }
@@ -28,4 +34,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.0.0'
+    compile project(':classes')
+    compile 'com.android.support:multidex:1.0.0'
 }
